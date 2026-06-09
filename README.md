@@ -152,6 +152,28 @@ If the backend runs on a different port, update `frontend/.env`:
 VITE_API_BASE_URL=http://127.0.0.1:8000/api
 ```
 
+## Deploy To Vercel
+
+This repository uses Vercel Services because it has two deployable services:
+
+- `frontend` mounted at `/`
+- `backend` mounted at `/api`
+
+The required root [vercel.json](vercel.json) is included.
+
+When importing the repo in Vercel:
+
+1. Set **Application Preset** to `Services`.
+2. Keep **Root Directory** as `./`.
+3. Deploy from the `main` branch.
+4. Do not set `VITE_API_BASE_URL` in production unless you are hosting the API somewhere else. The frontend defaults to `/api`.
+
+For local development, keep `frontend/.env` pointed at the local FastAPI server:
+
+```env
+VITE_API_BASE_URL=http://127.0.0.1:8000/api
+```
+
 ## API Endpoints
 
 FastAPI docs are available at:
